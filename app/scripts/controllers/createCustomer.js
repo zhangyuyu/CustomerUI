@@ -9,7 +9,11 @@ angular.module('customerUiApp')
           data: {
               name : $scope.name,
               age : $scope.age
-          }
+          },
+          headers: {
+              'Authorization': 'Basic dXNlcjpwYXNzd29yZA=='
+          },
+          withCredentials: true
        }).then(function(response) {
           $scope.info = response.data;
           alert('Create '+$scope.name+' successfully!');

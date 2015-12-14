@@ -7,7 +7,11 @@ angular.module('customerUiApp')
        var url = 'http://localhost:8080/customers?name=' + $scope.name;
        $http({
           url : url,
-          method : 'GET'
+          method : 'GET',
+          headers: {
+            'Authorization': 'Basic dXNlcjpwYXNzd29yZA=='
+          },
+          withCredentials: true
        }).then(function(response) {
           $scope.info = response.data;
           alert('Get '+$scope.name+' successfully!');
